@@ -8,6 +8,7 @@ import haxe.io.Bytes;
 
 @:headerCode('
     #include <assimp/Importer.hpp>
+    #include <assimp/postprocess.h>
 ')
 
 @:headerClassCode('

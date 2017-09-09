@@ -17,11 +17,20 @@ extern class AiMesh
     @:native("ptr->mMaterialIndex") public var materialIndex:Int;
     
     @:native("ptr->mVertices") public var vertices:AiMeshVertices;
+    @:native("ptr->mFaces") public var faces:AiMeshFaces;
 }
 
 abstract AiMeshVertices(Pointer<AiVector3D>)
 {
     @:arrayAccess public function get(index:Int):AiVector3D
+    {
+        return untyped __cpp__("this1[index]");
+    }
+}
+
+abstract AiMeshFaces(Pointer<AiFace>)
+{
+    @:arrayAccess public function get(index:Int):AiFace
     {
         return untyped __cpp__("this1[index]");
     }

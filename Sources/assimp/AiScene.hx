@@ -1,4 +1,5 @@
 package assimp;
+import cpp.Pointer;
 
 /**
  * ...
@@ -18,4 +19,13 @@ extern class AiScene
     
     @:native("ptr->mFlags") public var flags:Int;
     @:native("ptr->mRootNode") public var rootNode:AiNode;
+    @:native("ptr->mMeshes") public var meshes:AiSceneMeshes;
+}
+
+abstract AiSceneMeshes(Pointer<AiMesh>)
+{
+    @:arrayAccess public function get(index:Int):AiMesh
+    {
+        return untyped __cpp__("this1[index]");
+    }
 }
