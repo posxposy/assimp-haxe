@@ -1,5 +1,6 @@
 package assimp;
 import cpp.Pointer;
+import cpp.RawPointer;
 import cpp.Reference;
 
 /**
@@ -13,13 +14,5 @@ import cpp.Reference;
 extern class AiFace 
 {
     @:native("mNumIndices") public var numIndices:Int;
-    @:native("mIndices") public var indices:AiFaceIndices;// AiFaceIndices;
-}
-
-abstract AiFaceIndices(Pointer<Int>)
-{
-    @:arrayAccess public function get(index:Int):Int
-    {
-        return untyped __cpp__("this1[index]");
-    }
+    @:native("mIndices") public var indices:RawPointer<Int>;// AiFaceIndices;
 }

@@ -1,5 +1,6 @@
 package assimp;
 import cpp.Pointer;
+import cpp.RawPointer;
 
 /**
  * ...
@@ -8,7 +9,7 @@ import cpp.Pointer;
 
 @:unreflective
 @:include("assimp/scene.h")
-@:native('cpp.Pointer<aiScene>')
+@:native('aiScene')
 extern class AiScene 
 {
     public static inline var AI_SCENE_FLAGS_INCOMPLETE:Int = 0x1;
@@ -17,9 +18,9 @@ extern class AiScene
     public static inline var AI_SCENE_FLAGS_NON_VERBOSE_FORMAT:Int = 0x8;
     public static inline var AI_SCENE_FLAGS_TERRAIN:Int = 0x10;
     
-    @:native("ptr->mFlags") public var flags:Int;
-    @:native("ptr->mRootNode") public var rootNode:AiNode;
-    @:native("ptr->mMeshes") public var meshes:AiSceneMeshes;
+    @:native("mFlags") public var flags:Int;
+    @:native("mRootNode") public var rootNode:Pointer<AiNode>;
+    @:native("mMeshes") public var meshes:RawPointer<Pointer<AiMesh>>;
 }
 
 abstract AiSceneMeshes(Pointer<AiMesh>)

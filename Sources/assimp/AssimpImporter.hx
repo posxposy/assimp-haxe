@@ -1,4 +1,6 @@
 package assimp;
+import cpp.Pointer;
+import cpp.Star;
 import haxe.io.Bytes;
 
 /**
@@ -29,7 +31,7 @@ class AssimpImporter
         }
         return importer->ReadFileFromMemory(static_cast<void*>(buffer.data()), buffer.size(), pFlags);
     ')
-    public function readFileFromMemory(bytes:Bytes, pFlags:Int):AiScene
+    public function readFileFromMemory(bytes:Bytes, pFlags:Int):Pointer<AiScene>
     {
         return null;
     }

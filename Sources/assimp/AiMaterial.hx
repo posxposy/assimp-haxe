@@ -6,9 +6,9 @@ package assimp;
  */
 @:unreflective
 @:include("assimp/scene.h")
-@:native('cpp.Pointer<aiMaterial>')
+@:native('aiMaterial')
 extern class AiMaterial 
 {
-    @:native("ptr->mMaterialIndex") public var materialIndex:Int;
-    @:native("ptr->GetTextureCount") public function getTextureCount(type:Int):UInt;
+    @:native("mMaterialIndex") public var materialIndex:Int;
+    @:native("GetTextureCount") public function getTextureCount(type:Int):UInt;
 }

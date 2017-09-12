@@ -1,6 +1,7 @@
 package assimp;
 import assimp.math.AiVector3D;
 import cpp.Pointer;
+import cpp.RawPointer;
 import haxe.ds.Vector;
 
 /**
@@ -9,29 +10,14 @@ import haxe.ds.Vector;
  */
 @:unreflective
 @:include("assimp/scene.h")
-@:native('cpp.Pointer<aiMesh>')
+@:native('aiMesh')
 extern class AiMesh 
 {
-    @:native("ptr->mNumVertices") public var numVertices:Int;
-    @:native("ptr->mNumFaces") public var numFaces:Int;
-    @:native("ptr->mMaterialIndex") public var materialIndex:Int;
+    @:native("mNumVertices") public var numVertices:Int;
+    @:native("mNumFaces") public var numFaces:Int;
+    @:native("mMaterialIndex") public var materialIndex:Int;
     
-    @:native("ptr->mVertices") public var vertices:AiMeshVertices;
-    @:native("ptr->mFaces") public var faces:AiMeshFaces;
-}
-
-abstract AiMeshVertices(Pointer<AiVector3D>)
-{
-    @:arrayAccess public function get(index:Int):AiVector3D
-    {
-        return untyped __cpp__("this1[index]");
-    }
-}
-
-abstract AiMeshFaces(Pointer<AiFace>)
-{
-    @:arrayAccess public function get(index:Int):AiFace
-    {
-        return untyped __cpp__("this1[index]");
-    }
+    @:native("mVertices") public var vertices:RawPointer<AiVector3D>;
+    @:native("mFaces") public var faces:RawPointer<AiFace>;
+    @:native("mTextureCoords") public var textureCoords:RawPointer<RawPointer<AiVector3D>>;
 }
