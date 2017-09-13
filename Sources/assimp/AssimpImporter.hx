@@ -29,10 +29,19 @@ class AssimpImporter
         for (int i = 0; i < bytes->length; i++) {
             buffer.push_back(bytes->b->__get(i));
         }
-        return importer->ReadFileFromMemory(static_cast<void*>(buffer.data()), buffer.size(), pFlags);
+        return importer->ReadFileFromMemory(static_cast<void*>(buffer.data()), buffer.size(), flags);
     ')
-    public function readFileFromMemory(bytes:Bytes, pFlags:Int):Pointer<AiScene>
+    public function readFileFromMemory(bytes:Bytes, flags:Int):Pointer<AiScene>
     {
+        return null;
+    }
+    
+    @:functionCode('
+        return importer->ReadFile(path.c_str(), flags);
+    ')
+    public function readFile(path:String, flags:Int):Pointer<AiScene>
+    {
+        
         return null;
     }
     

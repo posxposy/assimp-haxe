@@ -21,6 +21,9 @@ extern class AiScene
     @:native("mFlags") public var flags:Int;
     @:native("mRootNode") public var rootNode:Pointer<AiNode>;
     @:native("mMeshes") public var meshes:RawPointer<Pointer<AiMesh>>;
+    @:native("mMaterials") public var materials:RawPointer<Pointer<AiMaterial>>;
+    
+    @:native("HasMaterials") public function hasMaterials():Bool;
 }
 
 abstract AiSceneMeshes(Pointer<AiMesh>)

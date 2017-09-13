@@ -1,4 +1,6 @@
 package assimp;
+import cpp.RawPointer;
+import cpp.Reference;
 
 /**
  * ...
@@ -10,5 +12,6 @@ package assimp;
 extern class AiMaterial 
 {
     @:native("mMaterialIndex") public var materialIndex:Int;
-    @:native("GetTextureCount") public function getTextureCount(type:Int):UInt;
+    @:native("GetTextureCount") public function getTextureCount(type:Int):Int;
+    @:native("GetTexture") public function getTexture(type:Int, index:Int, path:Reference<AiString>):Int;
 }
