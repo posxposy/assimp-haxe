@@ -1,7 +1,6 @@
 package assimp;
 import cpp.Pointer;
-import cpp.Star;
-import haxe.io.Bytes;
+import haxe.io.BytesData;
 
 /**
  * ...
@@ -24,25 +23,15 @@ class AssimpImporter
         untyped __cpp__("importer = new Assimp::Importer");
     }
     
-    @:functionCode('
-        std::vector<unsigned char> buffer;
-        for (int i = 0; i < bytes->length; i++) {
-            buffer.push_back(bytes->b->__get(i));
-        }
-        return importer->ReadFileFromMemory(static_cast<void*>(buffer.data()), buffer.size(), flags);
-    ')
-    public function readFileFromMemory(bytes:Bytes, flags:Int):Pointer<AiScene>
+    public function readFileFromMemory(bytesData:BytesData, flags:Int):Pointer<AiScene>
     {
-        return null;
+        return untyped __cpp__('importer->ReadFileFromMemory((const void*)&({0}[0]), {1}, flags)', bytesData, bytesData.length);
     }
     
-    @:functionCode('
-        return importer->ReadFile(path.c_str(), flags);
-    ')
     public function readFile(path:String, flags:Int):Pointer<AiScene>
     {
         
-        return null;
+        return untyped __cpp__('importer->ReadFile(path.c_str(), flags)');
     }
     
     public function destroy():Void
