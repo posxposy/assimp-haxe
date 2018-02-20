@@ -1,1 +1,1 @@
-# assimp-kha
+# assimp-haxe

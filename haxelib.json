@@ -1,10 +1,10 @@
 {
     "name": "assimp-haxe",
-    "url" : "https://github.com/dmitryhryppa/assimp-kha",
+    "url" : "https://github.com/dmitryhryppa/assimp-haxe",
     "license": "MIT",
     "tags": ["models", "3d", "assimp"],
     "description": "Assimp externs for haxe.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "classPath": "Sources",
     "releasenote": "Early stage.",
     "contributors": ["Dmitry Hryppa"],
