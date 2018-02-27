@@ -11,8 +11,7 @@ import haxe.ds.Vector;
 @:unreflective
 @:include("assimp/scene.h")
 @:native('aiMesh')
-extern class AiMesh 
-{
+extern class AiMesh {
     @:native("mNumVertices") public var numVertices:Int;
     @:native("mNumFaces") public var numFaces:Int;
     @:native("mMaterialIndex") public var materialIndex:Int;

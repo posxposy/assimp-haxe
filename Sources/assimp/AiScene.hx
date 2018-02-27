@@ -10,8 +10,7 @@ import cpp.RawPointer;
 @:unreflective
 @:include("assimp/scene.h")
 @:native('aiScene')
-extern class AiScene 
-{
+extern class AiScene {
     public static inline var AI_SCENE_FLAGS_INCOMPLETE:Int = 0x1;
     public static inline var AI_SCENE_FLAGS_VALIDATED:Int = 0x2;
     public static inline var AI_SCENE_FLAGS_VALIDATION_WARNING:Int = 0x4;
@@ -26,10 +25,8 @@ extern class AiScene
     @:native("HasMaterials") public function hasMaterials():Bool;
 }
 
-abstract AiSceneMeshes(Pointer<AiMesh>)
-{
-    @:arrayAccess public function get(index:Int):AiMesh
-    {
+abstract AiSceneMeshes(Pointer<AiMesh>) {
+    @:arrayAccess public function get(index:Int):AiMesh {
         return untyped __cpp__("this1[index]");
     }
 }

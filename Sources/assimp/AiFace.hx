@@ -11,8 +11,7 @@ import cpp.Reference;
 @:include("assimp/scene.h")
 @:native('aiFace')
 @:structAccess
-extern class AiFace 
-{
+extern class AiFace {
     @:native("mNumIndices") public var numIndices:Int;
     @:native("mIndices") public var indices:RawPointer<Int>;// AiFaceIndices;
 }

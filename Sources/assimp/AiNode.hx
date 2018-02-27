@@ -12,8 +12,7 @@ import cpp.Star;
 @:include("assimp/scene.h")
 @:include("assimp/postprocess.h>")
 @:native('aiNode')
-extern class AiNode 
-{
+extern class AiNode {
     @:native("mNumMeshes") public var numMeshes:Int;
     @:native("mNumChildren") public var numChildren:Int;
     @:native("mChildren") public var children:RawPointer<Pointer<AiNode>>;

@@ -4,8 +4,7 @@ package assimp;
  * ...
  * @author Dmitry Hryppa	http://themozokteam.com/
  */
-class AiPostProcess 
-{
+class AiPostProcess {
     public static inline var calcTangentSpace:Int = 0x1;
     public static inline var joinIdenticalVertices:Int = 0x2;
     public static inline var makeLeftHanded:Int = 0x4;

@@ -9,8 +9,7 @@ package assimp.math;
 @:include("assimp/scene.h")
 @:native('aiMatrix4x4')
 @:structAccess
-extern class AiMatrix4x4
-{
+extern class AiMatrix4x4 {
     public var a1:Float;
     public var a2:Float;
     public var a3:Float;

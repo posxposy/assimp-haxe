@@ -9,8 +9,7 @@ package assimp.math;
 @:include("assimp/scene.h")
 @:native('aiVector3D')
 @:structAccess
-extern class AiVector3D
-{
+extern class AiVector3D {
     public var x:Float;
     public var y:Float;
     public var z:Float;

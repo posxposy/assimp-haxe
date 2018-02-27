@@ -4,8 +4,7 @@ package assimp;
  * ...
  * @author Dmitry Hryppa	http://themozokteam.com/
  */
-class AiTextureType 
-{
+class AiTextureType {
     @:extern @:native("aiTextureType_NONE") public static var aiTextureType_NONE:Int;
     @:extern @:native("aiTextureType_DIFFUSE") public static var aiTextureType_DIFFUSE:Int;
     @:extern @:native("aiTextureType_SPECULAR") public static var aiTextureType_SPECULAR:Int;
