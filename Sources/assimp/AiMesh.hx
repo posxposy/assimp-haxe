@@ -1,5 +1,6 @@
 package assimp;
 import assimp.math.AiVector3D;
+import assimp.math.AiColor4D;
 import cpp.Pointer;
 import cpp.RawPointer;
 import haxe.ds.Vector;
@@ -22,4 +23,7 @@ extern class AiMesh {
     @:native("mTextureCoords") public var textureCoords:RawPointer<RawPointer<AiVector3D>>;
     @:native("mTangents") public var tangents:RawPointer<AiVector3D>;
     @:native("mBitangents") public var bitangents:RawPointer<AiVector3D>;
+    @:native("mColors") public var colors:RawPointer<RawPointer<AiColor4D>>;
+    
+    @:native("HasVertexColors") public function hasVertexColors(index:Int):Bool;
 }
