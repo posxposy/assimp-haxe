@@ -1,1 +1,0 @@
-Put c++ sources into ./assimp/ folder here.
