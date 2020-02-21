@@ -30,7 +30,7 @@ class AssimpImporter {
 	 * Free current scene
 	 */
 	public function freeScene():Void {
-		untyped __cpp__('importer->FreeScene');
+		untyped __cpp__('importer->FreeScene()');
 	}
 
 	public function destroy():Void {
