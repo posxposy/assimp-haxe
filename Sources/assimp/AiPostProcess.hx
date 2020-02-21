@@ -7,83 +7,83 @@ package assimp;
 
 @:unreflective
 @:include('assimp/postprocess.h')
-extern enum abstract AiPostProcess(AiPostProcessImpl) {
-	@:native('aiPostProcessSteps::aiProcess_CalcTangentSpace')
+extern enum abstract AiPostProcess(Int) {
+	@:native('aiProcess_CalcTangentSpace')
 	var calcTangentSpace;
 
-	@:native('aiPostProcessSteps::aiProcess_JoinIdenticalVertices')
+	@:native('aiProcess_JoinIdenticalVertices')
 	var joinIdenticalVertices;
 
-	@:native('aiPostProcessSteps::aiProcess_MakeLeftHanded')
+	@:native('aiProcess_MakeLeftHanded')
 	var makeLeftHanded;
 
-	@:native('aiPostProcessSteps::aiProcess_Triangulate')
+	@:native('aiProcess_Triangulate')
 	var triangulate;
 
-	@:native('aiPostProcessSteps::aiProcess_RemoveComponent')
+	@:native('aiProcess_RemoveComponent')
 	var removeComponent;
 
-	@:native('aiPostProcessSteps::aiProcess_GenNormals')
+	@:native('aiProcess_GenNormals')
 	var genNormals;
 
-	@:native('aiPostProcessSteps::aiProcess_GenSmoothNormals')
+	@:native('aiProcess_GenSmoothNormals')
 	var genSmoothNormals;
 
-	@:native('aiPostProcessSteps::aiProcess_SplitLargeMeshes')
+	@:native('aiProcess_SplitLargeMeshes')
 	var splitLargeMeshes;
 
-	@:native('aiPostProcessSteps::aiProcess_PreTransformVertices')
+	@:native('aiProcess_PreTransformVertices')
 	var preTransformVertices;
 
-	@:native('aiPostProcessSteps::aiProcess_LimitBoneWeights')
+	@:native('aiProcess_LimitBoneWeights')
 	var limitBoneWeights;
 
-	@:native('aiPostProcessSteps::aiProcess_ValidateDataStructure')
+	@:native('aiProcess_ValidateDataStructure')
 	var validateDataStructure;
 
-	@:native('aiPostProcessSteps::aiProcess_ImproveCacheLocality')
+	@:native('aiProcess_ImproveCacheLocality')
 	var improveCacheLocality;
 
-	@:native('aiPostProcessSteps::aiProcess_RemoveRedundantMaterials')
+	@:native('aiProcess_RemoveRedundantMaterials')
 	var removeRedundantMaterials;
 
-	@:native('aiPostProcessSteps::aiProcess_FixInfacingNormals')
+	@:native('aiProcess_FixInfacingNormals')
 	var fixInfacingNormals;
 
-	@:native('aiPostProcessSteps::aiProcess_SortByPType')
+	@:native('aiProcess_SortByPType')
 	var sortByPType;
 
-	@:native('aiPostProcessSteps::aiProcess_FindDegenerates')
+	@:native('aiProcess_FindDegenerates')
 	var findDegenerates;
 
-	@:native('aiPostProcessSteps::aiProcess_FindInvalidData')
+	@:native('aiProcess_FindInvalidData')
 	var findInvalidData;
 
-	@:native('aiPostProcessSteps::aiProcess_GenUVCoords')
+	@:native('aiProcess_GenUVCoords')
 	var genUVCoords;
 
-	@:native('aiPostProcessSteps::aiProcess_TransformUVCoords')
+	@:native('aiProcess_TransformUVCoords')
 	var transformUVCoords;
 
-	@:native('aiPostProcessSteps::aiProcess_FindInstances')
+	@:native('aiProcess_FindInstances')
 	var findInstances;
 
-	@:native('aiPostProcessSteps::aiProcess_OptimizeMeshes')
+	@:native('aiProcess_OptimizeMeshes')
 	var optimizeMeshes;
 
-	@:native('aiPostProcessSteps::aiProcess_OptimizeGraph')
+	@:native('aiProcess_OptimizeGraph')
 	var optimizeGraph;
 
-	@:native('aiPostProcessSteps::aiProcess_FlipUVs')
+	@:native('aiProcess_FlipUVs')
 	var flipUVs;
 
-	@:native('aiPostProcessSteps::aiProcess_FlipWindingOrder')
+	@:native('aiProcess_FlipWindingOrder')
 	var flipWindingOrder;
 
-	@:native('aiPostProcessSteps::aiProcess_SplitByBoneCount')
+	@:native('aiProcess_SplitByBoneCount')
 	var splitByBoneCount;
 
-	@:native('aiPostProcessSteps::aiProcess_Debone')
+	@:native('aiProcess_Debone')
 	var debone;
 
 	@:op(A | B)
@@ -103,7 +103,7 @@ extern enum abstract AiPostProcess(AiPostProcessImpl) {
 	 */
 	@:deprecated
 	public static inline function convertToLeftHanded():AiPostProcess {
-		return untyped __cpp__('aiPostProcessSteps(aiProcess_ConvertToLeftHanded)');
+		return untyped __cpp__('aiProcess_ConvertToLeftHanded');
 	}
 
 	/**
@@ -117,7 +117,7 @@ extern enum abstract AiPostProcess(AiPostProcessImpl) {
 	 * @return AiPostProcess
 	 */
 	public static inline function targetRealtimeFast():AiPostProcess {
-		return untyped __cpp__('aiPostProcessSteps(aiProcessPreset_TargetRealtime_Fast)');
+		return untyped __cpp__('aiProcessPreset_TargetRealtime_Fast');
 	}
 
 	/**
@@ -137,7 +137,7 @@ extern enum abstract AiPostProcess(AiPostProcessImpl) {
 	 * @return AiPostProcess
 	 */
 	public static inline function targetRealtimeQuality():AiPostProcess {
-		return untyped __cpp__('aiPostProcessSteps(aiProcessPreset_TargetRealtime_Quality)');
+		return untyped __cpp__('aiProcessPreset_TargetRealtime_Quality');
 	}
 
 	/**
@@ -159,10 +159,6 @@ extern enum abstract AiPostProcess(AiPostProcessImpl) {
 	 * @return AiPostProcess
 	 */
 	public static inline function targetRealtimeMaxQuality():AiPostProcess {
-		return untyped __cpp__('aiPostProcessSteps(aiProcessPreset_TargetRealtime_MaxQuality)');
+		return untyped __cpp__('aiProcessPreset_TargetRealtime_MaxQuality');
 	}
 }
-
-@:unreflective
-@:native("aiPostProcessSteps")
-extern class AiPostProcessImpl {}
