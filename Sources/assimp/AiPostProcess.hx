@@ -4,6 +4,7 @@ package assimp;
  * ...
  * @author Dmitry Hryppa	https://github.com/dmitryhryppa
  */
+
 @:unreflective
 @:include('assimp/postprocess.h')
 extern enum abstract AiPostProcess(AiPostProcessImpl) {
@@ -89,8 +90,79 @@ extern enum abstract AiPostProcess(AiPostProcessImpl) {
 	public inline function bitwiseOr(v:AiPostProcess):AiPostProcess {
 		return untyped __cpp__('{0} | {1}', this, v);
 	}
+
+	/**
+	 * Shortcut flag for Direct3D-based applications.
+	 *
+	 * Supersedes the `makeLeftHanded` and `flipUVs` and
+	 * `flipWindingOrder` flags.
+	 * The output data matches Direct3D's conventions: left-handed geometry, upper-left
+	 * origin for UV coordinates and finally clockwise face order, suitable for CCW culling.
+	 *
+	 * @return AiPostProcess
+	 */
+	@:deprecated
+	public static inline function convertToLeftHanded():AiPostProcess {
+		return untyped __cpp__('aiPostProcessSteps(aiProcess_ConvertToLeftHanded)');
+	}
+
+	/**
+	 * Shortcut flag for Direct3D-based applications.
+	 *
+	 * Supersedes the `makeLeftHanded` and `flipUVs` and `flipWindingOrder` flags.
+	 *
+	 * The output data matches Direct3D's conventions: left-handed geometry, upper-left
+	 * origin for UV coordinates and finally clockwise face order, suitable for CCW culling.
+	 *
+	 * @return AiPostProcess
+	 */
+	public static inline function targetRealtimeFast():AiPostProcess {
+		return untyped __cpp__('aiPostProcessSteps(aiProcessPreset_TargetRealtime_Fast)');
+	}
+
+	/**
+	 * Default postprocess configuration optimizing the data for real-time rendering.
+	 *
+	 * Applications would want to use this preset to load models on end-user PCs,
+	 * maybe for direct use in game.
+	 *
+	 * If you're using DirectX, don't forget to combine this value with
+	 * the `convertToLeftHanded()` step. If you don't support UV transformations
+	 * in your application apply the `transformUVCoords` step, too.
+	 *
+	 * Please take the time to read the docs for the steps enabled by this preset.
+	 * Some of them offer further configurable properties, while some of them might not be of
+	 * use for you so it might be better to not specify them.
+	 *
+	 * @return AiPostProcess
+	 */
+	public static inline function targetRealtimeQuality():AiPostProcess {
+		return untyped __cpp__('aiPostProcessSteps(aiProcessPreset_TargetRealtime_Quality)');
+	}
+
+	/**
+	 * Default postprocess configuration optimizing the data for real-time rendering.
+	 *
+	 * Unlike `targetRealtimeFast()`, this configuration
+	 * performs some extra optimizations to improve rendering speed and
+	 * to minimize memory usage. It could be a good choice for a level editor
+	 * environment where import speed is not so important.
+	 *
+	 * If you're using DirectX, don't forget to combine this value with
+	 * the `convertToLeftHanded()` step. If you don't support UV transformations
+	 * in your application apply the `transformUVCoords` step, too.
+	 *
+	 * Please take the time to read the docs for the steps enabled by this preset.
+	 * Some of them offer further configurable properties, while some of them might not be
+	 * of use for you so it might be better to not specify them.
+	 *
+	 * @return AiPostProcess
+	 */
+	public static inline function targetRealtimeMaxQuality():AiPostProcess {
+		return untyped __cpp__('aiPostProcessSteps(aiProcessPreset_TargetRealtime_MaxQuality)');
+	}
 }
 
 @:unreflective
 @:native("aiPostProcessSteps")
-class AiPostProcessImpl {}
+extern class AiPostProcessImpl {}
