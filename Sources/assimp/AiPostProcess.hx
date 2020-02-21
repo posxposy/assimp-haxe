@@ -4,31 +4,93 @@ package assimp;
  * ...
  * @author Dmitry Hryppa	https://github.com/dmitryhryppa
  */
-class AiPostProcess {
-	public static inline var calcTangentSpace:Int = 0x1;
-	public static inline var joinIdenticalVertices:Int = 0x2;
-	public static inline var makeLeftHanded:Int = 0x4;
-	public static inline var triangulate:Int = 0x8;
-	public static inline var removeComponent:Int = 0x10;
-	public static inline var genNormals:Int = 0x20;
-	public static inline var genSmoothNormals:Int = 0x40;
-	public static inline var splitLargeMeshes:Int = 0x80;
-	public static inline var preTransformVertices:Int = 0x100;
-	public static inline var limitBoneWeights:Int = 0x200;
-	public static inline var validateDataStructure:Int = 0x400;
-	public static inline var improveCacheLocality:Int = 0x800;
-	public static inline var removeRedundantMaterials:Int = 0x1000;
-	public static inline var fixInfacingNormals:Int = 0x2000;
-	public static inline var sortByPType:Int = 0x8000;
-	public static inline var findDegenerates:Int = 0x10000;
-	public static inline var findInvalidData:Int = 0x20000;
-	public static inline var genUVCoords:Int = 0x40000;
-	public static inline var transformUVCoords:Int = 0x80000;
-	public static inline var findInstances:Int = 0x100000;
-	public static inline var optimizeMeshes:Int = 0x200000;
-	public static inline var optimizeGraph:Int = 0x400000;
-	public static inline var flipUVs:Int = 0x800000;
-	public static inline var flipWindingOrder:Int = 0x1000000;
-	public static inline var splitByBoneCount:Int = 0x2000000;
-	public static inline var debone:Int = 0x4000000;
+@:unreflective
+@:include('assimp/postprocess.h')
+extern enum abstract AiPostProcess(AiPostProcessImpl) {
+	@:native('aiPostProcessSteps::aiProcess_CalcTangentSpace')
+	var calcTangentSpace;
+
+	@:native('aiPostProcessSteps::aiProcess_JoinIdenticalVertices')
+	var joinIdenticalVertices;
+
+	@:native('aiPostProcessSteps::aiProcess_MakeLeftHanded')
+	var makeLeftHanded;
+
+	@:native('aiPostProcessSteps::aiProcess_Triangulate')
+	var triangulate;
+
+	@:native('aiPostProcessSteps::aiProcess_RemoveComponent')
+	var removeComponent;
+
+	@:native('aiPostProcessSteps::aiProcess_GenNormals')
+	var genNormals;
+
+	@:native('aiPostProcessSteps::aiProcess_GenSmoothNormals')
+	var genSmoothNormals;
+
+	@:native('aiPostProcessSteps::aiProcess_SplitLargeMeshes')
+	var splitLargeMeshes;
+
+	@:native('aiPostProcessSteps::aiProcess_PreTransformVertices')
+	var preTransformVertices;
+
+	@:native('aiPostProcessSteps::aiProcess_LimitBoneWeights')
+	var limitBoneWeights;
+
+	@:native('aiPostProcessSteps::aiProcess_ValidateDataStructure')
+	var validateDataStructure;
+
+	@:native('aiPostProcessSteps::aiProcess_ImproveCacheLocality')
+	var improveCacheLocality;
+
+	@:native('aiPostProcessSteps::aiProcess_RemoveRedundantMaterials')
+	var removeRedundantMaterials;
+
+	@:native('aiPostProcessSteps::aiProcess_FixInfacingNormals')
+	var fixInfacingNormals;
+
+	@:native('aiPostProcessSteps::aiProcess_SortByPType')
+	var sortByPType;
+
+	@:native('aiPostProcessSteps::aiProcess_FindDegenerates')
+	var findDegenerates;
+
+	@:native('aiPostProcessSteps::aiProcess_FindInvalidData')
+	var findInvalidData;
+
+	@:native('aiPostProcessSteps::aiProcess_GenUVCoords')
+	var genUVCoords;
+
+	@:native('aiPostProcessSteps::aiProcess_TransformUVCoords')
+	var transformUVCoords;
+
+	@:native('aiPostProcessSteps::aiProcess_FindInstances')
+	var findInstances;
+
+	@:native('aiPostProcessSteps::aiProcess_OptimizeMeshes')
+	var optimizeMeshes;
+
+	@:native('aiPostProcessSteps::aiProcess_OptimizeGraph')
+	var optimizeGraph;
+
+	@:native('aiPostProcessSteps::aiProcess_FlipUVs')
+	var flipUVs;
+
+	@:native('aiPostProcessSteps::aiProcess_FlipWindingOrder')
+	var flipWindingOrder;
+
+	@:native('aiPostProcessSteps::aiProcess_SplitByBoneCount')
+	var splitByBoneCount;
+
+	@:native('aiPostProcessSteps::aiProcess_Debone')
+	var debone;
+
+	@:op(A | B)
+	public inline function bitwiseOr(v:AiPostProcess):AiPostProcess {
+		return untyped __cpp__('{0} | {1}', this, v);
+	}
 }
+
+@:unreflective
+@:native("aiPostProcessSteps")
+class AiPostProcessImpl {}
