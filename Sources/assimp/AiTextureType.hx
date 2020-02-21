@@ -4,18 +4,63 @@ package assimp;
  * ...
  * @author Dmitry Hryppa	https://github.com/dmitryhryppa
  */
-class AiTextureType {
-	@:extern @:native("aiTextureType_NONE") public static var aiTextureType_NONE:Int;
-	@:extern @:native("aiTextureType_DIFFUSE") public static var aiTextureType_DIFFUSE:Int;
-	@:extern @:native("aiTextureType_SPECULAR") public static var aiTextureType_SPECULAR:Int;
-	@:extern @:native("aiTextureType_AMBIENT") public static var aiTextureType_AMBIENT:Int;
-	@:extern @:native("aiTextureType_EMISSIVE") public static var aiTextureType_EMISSIVE:Int;
-	@:extern @:native("aiTextureType_HEIGHT") public static var aiTextureType_HEIGHT:Int;
-	@:extern @:native("aiTextureType_NORMALS") public static var aiTextureType_NORMALS:Int;
-	@:extern @:native("aiTextureType_SHININESS") public static var aiTextureType_SHININESS:Int;
-	@:extern @:native("aiTextureType_OPACITY") public static var aiTextureType_OPACITY:Int;
-	@:extern @:native("aiTextureType_DISPLACEMENT") public static var aiTextureType_DISPLACEMENT:Int;
-	@:extern @:native("aiTextureType_LIGHTMAP") public static var aiTextureType_LIGHTMAP:Int;
-	@:extern @:native("aiTextureType_REFLECTION") public static var aiTextureType_REFLECTION:Int;
-	@:extern @:native("aiTextureType_UNKNOWN") public static var aiTextureType_UNKNOWN:Int;
+@:unreflective
+@:include('assimp/material.h')
+extern enum abstract AiTextureType(Int) {
+	@:native("aiTextureType_NONE")
+	var None;
+
+	@:native("aiTextureType_DIFFUSE")
+	var Diffuse;
+
+	@:native("aiTextureType_SPECULAR")
+	var Specular;
+
+	@:native("aiTextureType_AMBIENT")
+	var Ambient;
+
+	@:native("aiTextureType_EMISSIVE")
+	var Emissive;
+
+	@:native("aiTextureType_HEIGHT")
+	var Height;
+
+	@:native("aiTextureType_NORMALS")
+	var Normals;
+
+	@:native("aiTextureType_SHININESS")
+	var Shininess;
+
+	@:native("aiTextureType_OPACITY")
+	var Opacity;
+
+	@:native("aiTextureType_DISPLACEMENT")
+	var Displacement;
+
+	@:native("aiTextureType_LIGHTMAP")
+	var Lightmap;
+
+	@:native("aiTextureType_REFLECTION")
+	var Reflection;
+
+	@:native("aiTextureType_BASE_COLOR")
+	var BaseColor;
+
+	@:native("aiTextureType_NORMAL_CAMERA")
+	var NormalCamera;
+
+	@:native("aiTextureType_EMISSION_COLOR")
+	var EmissionColor;
+
+	@:native("aiTextureType_METALNESS")
+	var Metalness;
+
+	@:native("aiTextureType_DIFFUSE_ROUGHNESS")
+	var DiffuseRoughness;
+
+	@:native("aiTextureType_AMBIENT_OCCLUSION")
+	var AmbientOcclusion;
+
+	@:native("aiTextureType_UNKNOWN")
+	var Unknown;
 }
