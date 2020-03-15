@@ -7,6 +7,7 @@ import cpp.Reference;
  * ...
  * @author Dmitry Hryppa	https://github.com/dmitryhryppa
  */
+@:structAccess
 @:unreflective
 @:include("assimp/scene.h")
 @:native('aiMaterial')

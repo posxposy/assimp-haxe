@@ -30,4 +30,8 @@ extern class AiMatrix4x4 {
 	public var d4:Float;
 
 	@:native("Decompose") public function decompose(scale:AiVector3D, rotation:AiQuaternion, position:AiVector3D):Void;
+
+	public inline function multmat(mat:AiMatrix4x4):AiMatrix4x4 {
+		return untyped __cpp__('{0} * {1}', this, mat);
+	}
 }

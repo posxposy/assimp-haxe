@@ -2,11 +2,13 @@ package assimp;
 
 import cpp.Pointer;
 import cpp.RawPointer;
+import cpp.Star;
 
 /**
  * ...
  * @author Dmitry Hryppa	https://github.com/dmitryhryppa
  */
+@:structAccess
 @:unreflective
 @:include("assimp/scene.h")
 @:native('aiScene')
@@ -18,9 +20,11 @@ extern class AiScene {
 	public static inline var AI_SCENE_FLAGS_TERRAIN:Int = 0x10;
 
 	@:native("mFlags") public var flags:Int;
-	@:native("mRootNode") public var rootNode:Pointer<AiNode>;
-	@:native("mMeshes") public var meshes:RawPointer<Pointer<AiMesh>>;
-	@:native("mMaterials") public var materials:RawPointer<Pointer<AiMaterial>>;
+	@:native("mNumAnimations") public var numAnimations:Int;
+	@:native("mRootNode") public var rootNode:Star<AiNode>;
+	@:native("mMeshes") public var meshes:RawPointer<Star<AiMesh>>;
+	@:native("mMaterials") public var materials:RawPointer<Star<AiMaterial>>;
+	@:native("mAnimations") public var animations:RawPointer<Star<AiAnimation>>;
 
 	@:native("HasMaterials") public function hasMaterials():Bool;
 }

@@ -12,8 +12,9 @@ import cpp.Star;
 @:unreflective
 @:include("assimp/scene.h")
 @:native('aiString')
+@:structAccess
 extern class AiString {
 	@:native("new aiString") public static function create():Pointer<AiString>;
-	@:native("new aiString") public static function create2():Star<AiString>;
-	@:native("C_Str") public function c_str():ConstCharStar;
+	@:native("aiString") public static function make():Star<AiString>;
+	@:native("C_Str") public function toConstCharStar():ConstCharStar;
 }
